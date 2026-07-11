@@ -1,0 +1,17 @@
+# ── OS / Editor ──────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Environment (root level) ─────────────────
+.env
+*.local
+
+# ── Logs ────────────────────────────────────
+*.log
+
+# ── Docker volumes ───────────────────────────
+docker-volumes/
