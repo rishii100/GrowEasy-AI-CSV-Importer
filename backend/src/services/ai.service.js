@@ -3,7 +3,7 @@ const { chunkArray, sleep } = require('../utils/helpers');
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-const MODEL = 'llama3-70b-8192';
+const MODEL = 'llama-3.1-8b-instant';
 const BATCH_SIZE = parseInt(process.env.BATCH_SIZE, 10) || 15;
 const MAX_RETRIES = parseInt(process.env.MAX_RETRIES, 10) || 3;
 const RETRY_DELAY_MS = 1500;
