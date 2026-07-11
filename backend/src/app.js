@@ -28,6 +28,18 @@ app.use(
 app.use(express.json({ limit: '10mb' }));
 
 // ── Routes ──────────────────────────────────────────────────
+app.get('/', (_req, res) =>
+  res.json({
+    name: 'GrowEasy AI CSV Importer API',
+    version: '1.0.0',
+    status: 'running',
+    endpoints: {
+      health: '/api/health',
+      import: 'POST /api/import',
+    },
+  })
+);
+
 app.get('/api/health', (_req, res) =>
   res.json({ status: 'ok', timestamp: new Date().toISOString() })
 );
