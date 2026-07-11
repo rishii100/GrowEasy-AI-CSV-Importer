@@ -26,16 +26,27 @@ export function parseClientCsv(
  * Send the CSV file to the backend for AI extraction.
  */
 export async function importCsvViaApi(file: File) {
-  const formData = new FormData();
-  formData.append('file', file);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:8080';
+  const endpoint = `${backendUrl}/api/import`;
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:5000'}/api/import`,
-    { method: 'POST', body: formData }
-  );
+  console.log('[API] Calling:', endpoint);
+
+  let res: Response;
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    res = await fetch(endpoint, { method: 'POST', body: formData });
+  } catch (networkErr) {
+    // CORS or network failure — backend unreachable
+    throw new Error(
+      `Cannot reach backend at ${backendUrl}. ` +
+      `Check that NEXT_PUBLIC_BACKEND_URL is set correctly and the backend is running. ` +
+      `(${(networkErr as Error).message})`
+    );
+  }
 
   if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: 'Unknown error' }));
+    const err = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
     throw new Error(err.error ?? `HTTP ${res.status}`);
   }
 
