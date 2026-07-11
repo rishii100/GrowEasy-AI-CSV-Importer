@@ -1,20 +1,5 @@
 # GrowEasy AI CSV Importer
 
-**Position Applied For:** Software Developer Intern
-**Submitted by:** Aneerban (GitHub: [@rishii100](https://github.com/rishii100))
-
----
-
-## 🔗 Live Links
-
-| | URL |
-|---|---|
-| 🌐 **Frontend (Vercel)** | _add your vercel url here_ |
-| ⚙️ **Backend (Render)** | https://groweasy-ai-csv-importer-mcn6.onrender.com |
-| 📦 **GitHub Repo** | https://github.com/rishii100/GrowEasy-AI-CSV-Importer |
-
-> ⚠️ Backend is hosted on Render's free tier — it may take **~30 seconds** to wake up after a period of inactivity.
-
 ---
 
 ## 📖 Overview
@@ -31,7 +16,7 @@ Works with:
 Built with:
 - **Frontend:** Next.js 14 (App Router) + TypeScript + Vanilla CSS
 - **Backend:** Node.js + Express
-- **AI:** Groq API (`llama3-70b-8192` — open-source LLM)
+- **AI:** Groq API (`llama-3.1-8b-instant` — open-source LLM)
 - **Deployment:** Vercel (frontend) + Render (backend)
 
 ---
